@@ -6,22 +6,27 @@
 
   <div class="field">
     <%= f.label :name %><br />
-    <%= f.name_field :name, autofocus: true, autocomplete: "name" %>
+    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
   </div>
 
    <div class="field">
     <%= f.label :username %><br />
-    <%= f.username_field :username,  autocomplete: "username" %>
+    <%= f.text_field :username,  autocomplete: "username" %>
   </div>
 
  <div class="field">
     <%= f.label :location %><br />
-    <%= f.location_field :location,  autocomplete: "location" %>
+    <%= f.text_field :location,  autocomplete: "location" %>
   </div>
 
  <div class="field">
     <%= f.label :bio %><br />
-    <%= f.bio_field :bio,  autocomplete: "bio" %>
+    <%= f.text_field :bio,  autocomplete: "bio" %>
+  </div>
+
+  <div class="field">
+    <strong>Upload profile pic</strong><br>
+    <%= f.file_field :avatar %>
   </div>
 
   <div class="field">

@@ -1,0 +1,122 @@
+
+
+<div class= "container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="panel panel-default">
+         	<div style="background-color:#1DA1F2; height: 171px;" class="panel-heading" id= "stretch">
+         		
+         		<% if current_user.avatar.blank? %>
+         			<%= image_tag "default.png" %>
+	                  <% else %> 
+	                  <%= image_tag current_user.avatar.url, size:65, class: "user-pics" %>
+	            	<% end %>
+         		
+            <h2 class="panel-title"></h2>
+          	</div>
+
+         
+          	<div class="panel-heading" id= "stretchy">
+          	
+          		<table>
+	              <tr>
+	              	<th>  </th>
+	                <th style="color:gray" id= "tbs"><%= link_to "Tweets" %></th> 
+	                <th style="color:gray" class= "tab"><%= link_to "Following" %></th> 
+	                <th style="color:gray" class= "tab"><%= link_to "Followers" %></th>
+	                <th style="color:gray" id= "tabb"><%= link_to "Lists" %></th>
+	                <th style="color:gray"><%= link_to "Moments" %></th>
+	              
+	              </tr> 
+	              <tr>
+	              	<td style= "width: 350px;">  </td>
+	                <td class= "td" style="color:DodgerBlue;"><B>0</B></td> 
+	                <td class= "td" style="color:DodgerBlue;"><b>22</b></td> 
+	                <td class= "td" style="color:DodgerBlue;"><b>12</b></td>
+	                <td class= "td" style="color:DodgerBlue;"><b>87</b></td>
+	                <td class= "td" style="color:DodgerBlue; width: 510px;"><b>45</b></td>
+	               
+	              </tr>
+	              <span id= "right">
+	                	 <%= link_to '<button type="button" style="height: 36px;">Edit Profile</button>'.html_safe, edit_user_registration_path %>
+	                </span>
+	            </table>
+					
+
+          	</div>
+
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<div class= "container">
+    <div class="row">
+<div class="col-md-2">
+        
+<div>
+<h3>@<%= @user.username %>'s Profile</h5>
+
+<p>
+	<%= @user.name %>
+</p>
+
+<p>
+	<%= @user.location %>
+</p>
+
+<p>
+	<%= @user.bio %>
+</p>
+
+
+
+
+</div>
+</div>
+
+
+	<div class="col-md-7">
+		<div class="panel panel-default">
+			<div class="panel-headingg">
+				<h3>My Tweets</h3>
+				<p>
+	<% if current_user.following.include?(@user.id) %>
+	<%= link_to "Unfollow", unfollow_path(id: @user.id), class: "bttn btn-default", id:"unfollow-btn" %>
+		<% else %>
+		<% if current_user.id != @user.id %>
+		<%= link_to "Follow", now_following_path(id: @user.id), class: "btn btn-default" %>
+		<% end %>
+	<% end %>
+</p>
+
+<% @user.tweets.each do |tweet| %>
+<p>@<%= link_to @user.username, show_user_path(id: tweet.user.id) %></p>
+<p><%= tweet.message %></p>
+<% end %>
+			</div>
+		</div>
+	</div>
+
+
+      <div class="col-md-3">
+        <div class="panel panel-default">
+        	<div class="panel-headingg">
+          <h3 class="panel-title"><b>Trends For you</b> <a href="#">Change</a></h3>
+        </div>
+        <div class="panel-body">
+          <a href="#"><b>@World cup final</b></a><br>
+          <p>73.4k retweets</p>
+          <a href="#"><b>@Trump</b></a><br>
+          <p>100k retweets</p>
+          <a href="#"><b>#NewMusicFriday</b></a><br><br>
+          <a href="#"><b>@Codingnow</b></a><br>
+          <p>35.2k retweets</p>
+          <a href="#"><b>#Avlnews</b></a><br>
+          
+        </div>
+        </div>
+      </div>
+    </div>
+</div>

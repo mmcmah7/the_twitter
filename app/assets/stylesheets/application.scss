@@ -13,6 +13,27 @@
  *= require_tree .
  *= require_self
  */
-
+ @import 'bootstrap-sprockets';
  @import 'bootstrap';
  @import 'font-awesome';
+
+#text {
+	text-align: center;
+}
+
+.Footer-items {
+	float: right;
+}
+
+#nav {
+	height: 50px;
+}
+
+.dropdown-toggle {
+	padding-bottom: 0px;
+}
+
+body {
+    background-color: #e6ecf0;
+}
+

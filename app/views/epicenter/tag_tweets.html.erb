@@ -1,0 +1,11 @@
+<h1><%= @tag.phrase %></h1>
+
+<% @tag.tweets.order(created_at: :desc).each do |tweet| %>
+	<%= tweet.user.name %> <%= "@#{tweet.user.username}" %><br>
+	&bull; <%= time_ago_in_words(tweet.created_at)%><br>
+
+	<%= tweet.message.html_safe %><br>
+<% end %>
+
+
+

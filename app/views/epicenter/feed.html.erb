@@ -1,0 +1,122 @@
+
+
+<div class= "container">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="panel panel-default">
+         	<div style="background-color:#1DA1F2;" class="panel-heading">
+            <h2 class="panel-title"></h2>
+          	</div>
+	          <div class="panel-body">
+	              <% if current_user.avatar.blank? == false %>
+	                  <%= image_tag current_user.avatar.url, size:25, class: "user-pic" %>
+	            	<% end %>
+	            	<ul style="list-style-type:none", class= "float">
+			            <b><li><%= link_to current_user.name %>
+			             </li></b> 
+			            <li style="color:gray"> @<%= link_to current_user.username %>
+			            </li>
+		            </ul>
+	           
+		            <table>
+	              <tr>
+	                <th style="color:gray" id= "tbs"><%= link_to "Tweets" %></th> 
+	                <th style="color:gray" id= "tab"><%= link_to "Following" %></th> 
+	                <th style="color:gray"><%= link_to "Followers" %></th>
+	              </tr> 
+	              <tr>
+	                <td class= "td" style="color:DodgerBlue;"><B>0</B></td> 
+	                <td class= "td" style="color:DodgerBlue; width: 90px;"><b>22</b></td> 
+	                <td class= "td" style="color:DodgerBlue;"><b>12</b></td>
+	              </tr>
+	            </table>
+	        </div>
+	          </div>
+	         
+
+         <div class="panel panel-default">
+        <div class="panel-headingg">
+          <h3 class="panel-title"><b>Trends For you</b> <a href="#">Change</a></h3>
+        </div>
+        <div class="panel-body">
+          <a href="#"><b>@World cup final</b></a><br>
+          <p>73.4k retweets</p>
+          <a href="#"><b>@Trump</b></a><br>
+          <p>100k retweets</p>
+          <a href="#"><b>#NewMusicFriday</b></a><br><br>
+          <a href="#"><b>@Codingnow</b></a><br>
+          <p>35.2k retweets</p>
+          <a href="#"><b>#Avlnews</b></a><br>
+          
+        </div>
+  
+      </div>
+
+      </div>
+  
+		<div class= "col-md-6">
+
+		<div class="panel panel-default" style= "height: 34px;">
+	        <div class="panel-headin">
+
+				<div><% if current_user.avatar.blank? %>
+         			<%= image_tag "default.png" %>
+	                  <% else %> 
+	                  <%= image_tag current_user.avatar.url, size:25, class: "user" %>
+	            	<% end %>
+
+					<%= render 'tweets/form', tweet: @tweet %> </div>
+			</div>
+		</div>
+		<div class="panel panel-default">
+	        <div class="panel-body">
+
+				<h1>@<%= current_user.username %>'s Twitter Feed</h1>
+
+				<p>Here is what your friends are saying...</p>
+
+				<% @following_tweets.each do |tweet| %>
+
+					<p>@<%= link_to tweet.user.username, show_user_path(id: tweet.user.id) %></p>
+					<p><%= tweet.message.html_safe %></p>
+
+				<% end %>
+			</div>
+		</div>
+	</div>
+		<div class= "col-md-3">
+			<div class="panel panel-default">
+				<div class="panel-headingg">
+	            <h2 class="panel-title"><b>Who to Follow</b> . <a href="#">View All</a> . <a href="#">Refresh</a> </h2>
+	          	</div>
+	          	<div class="panel-body">
+
+	          	
+
+
+	          		Eat grass, throw it back up bathe private parts with tongue then lick owner's face, or rub face on owner being gorgeous with belly side up.  Push your water glass on the floor drool lick the other cats but mesmerizing birds. Munch on tasty moths lick butt, yet sit on human they not getting up ever or spill litter box, scratch at owner, destroy all furniture, especially couch this human feeds me, i should be a god milk the cow dont wait for the storm to pass, dance in the rain. Catch mouse and gave it as a present refuse to leave cardboard box murf pratt ungow ungow, or cat not kitten around . 
+	          	</div>
+	          	<div class="panel-footer">
+	          		<a href="#">Find people you know</a>
+	          	</div>
+			</div>
+
+			<div class="panel panel-default">
+				<div class="panel-body">
+			      <ul style="list-style-type:none">
+			        <li class="Footer-item ">© 2018 Twitter</li>
+			        <li class="Footer-item"><a class="Footer-link" href="#">About</a> | <a class="Footer-link" href="#">Ads info</a> </li>
+			        <li class="Footer-item"><a class="Footer-link" href="#">Help Center</a> | <a class="Footer-link" href="#">Jobs</a> </li>
+			        <li class="Footer-item"><a class="Footer-link" href="/tos" rel="">Terms</a> | <a class="Footer-link" href="#">Marketing</a> </li>
+			        <li class="Footer-item"><a class="Footer-link" href="#">Privacy policy</a> | <a class="Footer-link" href="#">Businesses</a> </li>
+			        <li class="Footer-item"><a class="Footer-link" href="#">Cookies</a> | <a class="Footer-link" href="#">Developers</a> </li>
+			      </ul>
+			      
+			    </div>
+			 	<div class="panel-footer">
+	          		<a href="#">Find people you know</a>
+	          	</div>
+		</div>
+	</div>
+</div>
+
